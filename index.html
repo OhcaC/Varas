@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentencia</title>
+    <link rel="icon" href="imagenes/VARA.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:ital,wght@0,1..1000;1,1..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .top-bar-container {
+        margin-top: 30px;
+      }
+
+      .top-bar {
+        background-color: #7289da;
+        height: 5px;
+        width: 0;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        transition: width 0.3s;
+      }
+
+      body {
+        font-family: "Sofia Sans Semi Condensed", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        background-color: #38343c;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 70px;
+      }
+
+      .header-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .header {
+        display: inline-block;
+        background-color: #47434a;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .header h1,
+      .section-heading {
+        color: #fff;
+        font-size: 36px;
+        margin: 10px 0;
+        font-weight: bold;
+        font-family: "Sofia Sans Semi Condensed", sans-serif;
+      }
+
+      .header h2 {
+        color: #fff;
+        font-size: 20px;
+        margin: 5px 0;
+        font-weight: normal;
+        font-family: "Sofia Sans Semi Condensed", sans-serif;
+      }
+
+      .logo-container {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 20px;
+        animation: moveUpDown 3s ease-in-out infinite alternate;
+        border: 6px solid #2e2b31;
+      }
+
+      .logo-container img {
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        user-select: none !important;
+      }
+
+      .section-heading {
+        color: #fff;
+        font-size: 28px;
+        margin: 10px 0;
+        font-weight: bold;
+        font-family: "Sofia Sans Semi Condensed", sans-serif;
+      }
+
+      @keyframes moveUpDown {
+        0% {
+          transform: translateY(20px);
+        }
+        100% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .content {
+        background-color: #2e2b31;
+        padding: 20px;
+        text-align: center;
+        margin-top: 0px;
+      }
+
+      .content h1 {
+        font-size: 28px;
+        margin: 20px 0;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .content-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .content-item {
+        text-align: center;
+        margin: 20px;
+        max-width: 300px;
+        background-color: #47434a;
+        border-radius: 10px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .content-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .content-item img {
+        max-width: 100%;
+        border-radius: 5px;
+      }
+
+      .content-item h2 {
+        font-size: 24px;
+        margin: 10px 0;
+        color: #fff;
+      }
+
+      .requirements-section {
+        background-color: #2e2b31;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        margin-bottom: 0;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .requirements-box {
+        background-color: #47434a;
+        border-radius: 10px;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .requirements-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .requirements-list {
+        list-style: none;
+        padding: 0;
+        text-align: left;
+        margin-top: 10px;
+      }
+
+      .requirements-list li {
+        font-size: 20px;
+        margin-bottom: 15px;
+        position: relative;
+        cursor: pointer;
+        color: #fff;
+        transition: color 0.3s;
+      }
+
+      .requirements-list li:before {
+        content: "\2022";
+        color: #fff;
+        display: inline-block;
+        width: 1em;
+        margin-right: 0.5em;
+      }
+
+      .requirements-list li:not(:last-child):after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: #959595;
+        margin-top: 10px;
+      }
+
+      .contact-section {
+        background-color: #2e2b31;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      .contact-section h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .contact-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .contact-box {
+        background-color: #7289da;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        transition: transform 0.3s ease;
+      }
+
+      .contact-box:hover {
+        transform: translateY(-5px);
+      }
+
+      .contact-box img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      .watermark {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 14px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
+      .wave {
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-image: url(./imagenes/wave.png);
+        background-size: 1000px 100px;
+        animation: wave 5s linear infinite;
+        margin-bottom: 0%;
+      }
+
+      @keyframes wave {
+        0% {
+          background-position-x: 0;
+        }
+        100% {
+          background-position-x: 1000px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="top-bar-container">
+      <div class="top-bar"></div>
+    </div>
+
+    <div class="header-container">
+      <div class="header">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
+          <div>
+            <h1 class="section-heading">Todo Varas</h1>
+            <h2>Pagina de infromacion sobre las varas</h2>
+          </div>
+          <div class="logo-container" style="height: 120px">
+            <img
+              src="./imagenes/VARA.png"
+              alt="Logo"
+              class="logo"
+              style="height: 100%; width: auto"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave"></div>
+
+    <div class="content">
+      <div class="section-box">
+        <h1 class="section-heading">CONTENIDOS DONDE SE PUEDEN UTILIZAR</h1>
+      </div>
+      <div class="content-container">
+        <div class="content-item">
+          <img src="./imagenes/ZvZ.jpg" alt="ZvZ" />
+          <h2>ZvZ</h2>
+        </div>
+        <div class="content-item">
+          <img src="./imagenes/HG.jpg" alt="Hellgates" />
+          <h2>Hellgates</h2>
+        </div>
+        <div class="content-item">
+          <img src="./imagenes/Gank.jpg" alt="Gank" />
+          <h2>Gank</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="requirements-section">
+      <div class="section-box">
+        <h1 class="section-heading">REQUISITOS PARA SER LA MEJOR VARA</h1>
+      </div>
+      <div class="requirements-box">
+        <ul class="requirements-list">
+          <li>Ganas de jugar varas</li>
+          <li>1400 IP+ en todas las varas</li>
+          <li>Vara</li>
+          <li>No jugar otra cosa que no sean varas</li>
+          <li>Si</li>
+        </ul>
+      </div>
+    </div>  
+        </a>
+      </div>
+    </div>
+
+ 
+    <div class="watermark">
+      Todo Varas 2025 - Informacion sobre varas. Página de Provoleta
+    </div>
+
+
+    <script>
+      window.addEventListener("scroll", function () {
+        const scrollTop = document.documentElement.scrollTop;
+        const windowHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const progress = (scrollTop / windowHeight) * 100;
+        document.querySelector(".top-bar").style.width = progress + "%";
+      });
+    </script>
+  </body>
+</html>
